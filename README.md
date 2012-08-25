@@ -11,8 +11,11 @@ Follow these steps to build the package:
 1. Copy the spec file to the %rpmbuild%/SPEC folder
 2. Copy the patch file(s) to the %rpmbuild%/SOURCES folder
 3. Switch to the %rpmbuild%/SOURCES folder and download the source:
+
     wget -O vim-vimclojure-2.3.6.tar.gz https://github.com/kotarak/vimclojure/tarball/v2.3.6
+
 4. Switch to the %rpmbuild%/SPEC folder and build the RPM
+
     rpmbuild -bb vim-vimclojure.spec
 
 Installing
@@ -24,8 +27,8 @@ Once you build the package, you can install it using this command:
 
 Now when you open a Clojure source file in Vim, you should see that the source is syntax highlighted.
 
-Repl
-----
+Nailgun integration
+-------------------
 
 In order to use the REPL inside of Vim, you need to setup a nailgun server, then tell Vim you want to use it.
 
