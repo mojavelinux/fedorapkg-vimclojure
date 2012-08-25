@@ -10,7 +10,7 @@ Follow these steps to build the package:
 
 1. Copy the spec file to the %rpmbuild%/SPEC folder
 2. Copy the patch file(s) to the %rpmbuild%/SOURCES folder
-3. Switch to the %rpmbuild%/SOURCES folder and download the source:
+3. Switch to the %rpmbuild%/SOURCES folder and download the source
 
 ```
 wget -O vim-vimclojure-2.3.6.tar.gz https://github.com/kotarak/vimclojure/tarball/v2.3.6
