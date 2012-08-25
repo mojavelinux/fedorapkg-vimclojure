@@ -1,0 +1,11 @@
+--- a/vim/autoload/vimclojure.vim	2012-08-25 14:38:55.491000033 -0400
++++ b/vim/autoload/vimclojure.vim	2012-08-25 14:39:28.068000007 -0400
+@@ -53,7 +53,7 @@
+ 					\ "vimclojure#ParenRainbow")
+ 		let vimclojure#ParenRainbow = g:clj_paren_rainbow
+ 	else
+-		let vimclojure#ParenRainbow = 0
++		let vimclojure#ParenRainbow = 1
+ 	endif
+ endif
+ 
