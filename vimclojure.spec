@@ -41,6 +41,9 @@ people already familiar with Vim.
 %setup -q -n kotarak-vimclojure-%{commithash}
 %patch0 -p1
 cp -p %{SOURCE1} server/pom.xml
+# optional definitions should not be compiled
+mkdir server/src/main/resources/vimclojure/optional
+mv server/src/main/clojure/vimclojure/optional/*.clj server/src/main/resources/vimclojure/optional/
 
 %build
 mvn-rpmbuild -f server/pom.xml install
