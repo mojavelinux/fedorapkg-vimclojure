@@ -22,6 +22,12 @@ wget -O vimclojure-2.3.6.tar.gz https://github.com/kotarak/vimclojure/tarball/v2
 rpmbuild -bb vimclojure.spec
 ```
 
+**WARNING:** If clojure-compat is installed, clojure-compat.jar will be used for
+compilation instead of clojure.jar. This substitution produces a server.jar
+that's incompatible with Clojure 1.4. The clojure-compat pom claims to provide
+org.clojure:clojure:1.2, which somehow confuses the JPP depmap logic.
+
+
 Installing
 ----------
 
