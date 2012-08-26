@@ -16,7 +16,14 @@ Follow these steps to build the package:
 wget -O vimclojure-2.3.6.tar.gz https://github.com/kotarak/vimclojure/tarball/v2.3.6
 ```
 
-* Switch to the %rpmbuild%/SPEC folder and build the RPM
+* Switch to the %rpmbuild%/SPEC folder
+* Make sure you have the required rpms to build
+
+```
+yum-builddep vimclojure.spec
+```
+
+* Build the vimclojure rpm
 
 ```
 rpmbuild -bb vimclojure.spec
