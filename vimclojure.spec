@@ -13,7 +13,8 @@ Source0:        %{name}-%{version}.tar.gz
 # wget -O %{name}-%{version}.tar.gz https://github.com/kotarak/vimclojure/tarball/v%{version}
 Source1:        %{name}-%{version}-server-pom.xml
 Patch0:         %{name}-enable-paren-rainbow.patch
-Patch1:         %{name}-use-setfiletype-directive.patch
+# using setfiletype instead of set filetype breaks syntax loading
+#Patch1:         %{name}-use-setfiletype-directive.patch
 
 BuildRequires:  java-devel
 BuildRequires:  jpackage-utils
@@ -42,7 +43,7 @@ people already familiar with Vim.
 %prep
 %setup -q -n kotarak-vimclojure-%{commithash}
 %patch0 -p1
-%patch1 -p1
+#%patch1 -p1
 cp -p %{SOURCE1} server/pom.xml
 # optional definitions should not be compiled
 #mkdir server/src/main/resources/vimclojure/optional
