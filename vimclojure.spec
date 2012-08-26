@@ -13,6 +13,7 @@ Source0:        %{name}-%{version}.tar.gz
 # wget -O %{name}-%{version}.tar.gz https://github.com/kotarak/vimclojure/tarball/v%{version}
 Source1:        %{name}-%{version}-server-pom.xml
 Patch0:         %{name}-enable-paren-rainbow.patch
+Patch1:         %{name}-use-setfiletype-directive.patch
 
 BuildRequires:  java-devel
 BuildRequires:  jpackage-utils
@@ -21,7 +22,8 @@ BuildRequires:  maven-compiler-plugin
 BuildRequires:  maven-install-plugin
 BuildRequires:  maven-jar-plugin
 BuildRequires:  maven-resources-plugin
-BuildRequires:  clojure-maven-plugin
+# we aren't going to compile the clojure sources for compatibility reasons
+#BuildRequires:  clojure-maven-plugin
 
 Requires:       vim-common
 # should nailgun be required, or optional?
@@ -40,10 +42,11 @@ people already familiar with Vim.
 %prep
 %setup -q -n kotarak-vimclojure-%{commithash}
 %patch0 -p1
+%patch1 -p1
 cp -p %{SOURCE1} server/pom.xml
 # optional definitions should not be compiled
-mkdir server/src/main/resources/vimclojure/optional
-mv server/src/main/clojure/vimclojure/optional/*.clj server/src/main/resources/vimclojure/optional/
+#mkdir server/src/main/resources/vimclojure/optional
+#mv server/src/main/clojure/vimclojure/optional/*.clj server/src/main/resources/vimclojure/optional/
 
 %build
 mvn-rpmbuild -f server/pom.xml install

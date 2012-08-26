@@ -1,0 +1,5 @@
+--- a/vim/ftdetect/clojure.vim	2012-08-26 16:40:03.132253863 -0400
++++ b/vim/ftdetect/clojure.vim	2012-08-26 16:40:09.964093817 -0400
+@@ -1 +1 @@
+-au BufNewFile,BufRead *.clj set filetype=clojure
++au BufNewFile,BufRead *.clj setfiletype=clojure

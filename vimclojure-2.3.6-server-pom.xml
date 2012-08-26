@@ -18,7 +18,18 @@
         </dependency>
     </dependencies>
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/clojure</directory>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
         <plugins>
+            <!--
             <plugin>
                 <groupId>com.theoryinpractise</groupId>
                 <artifactId>clojure-maven-plugin</artifactId>
@@ -33,6 +44,7 @@
                     </execution>
                 </executions>
             </plugin>
+            -->
             <!-- should we do the manifest thing? -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
