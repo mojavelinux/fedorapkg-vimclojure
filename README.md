@@ -26,7 +26,7 @@ rpmbuild -bb vimclojure.spec
 compilation instead of clojure.jar. This substitution produces a server.jar
 that's incompatible with Clojure 1.4. The clojure-compat pom claims to provide
 org.clojure:clojure:1.2, which somehow confuses the JPP depmap logic.
-
+Looks like it's a typo in the artifactId in the clojure-compat package.
 
 Installing
 ----------
