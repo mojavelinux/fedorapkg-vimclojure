@@ -13,13 +13,13 @@ Follow these steps to build the package:
 * Switch to the %rpmbuild%/SOURCES folder and download the source
 
 ```
-wget -O vim-vimclojure-2.3.6.tar.gz https://github.com/kotarak/vimclojure/tarball/v2.3.6
+wget -O vimclojure-2.3.6.tar.gz https://github.com/kotarak/vimclojure/tarball/v2.3.6
 ```
 
 * Switch to the %rpmbuild%/SPEC folder and build the RPM
 
 ```
-rpmbuild -bb vim-vimclojure.spec
+rpmbuild -bb vimclojure.spec
 ```
 
 Installing
@@ -27,7 +27,7 @@ Installing
 
 Once you build the package, you can install it using this command:
 
-    yum localinstall %rpmbuild%/RPMS/noarch/vim-vimclojure-*.rpm
+    yum localinstall %rpmbuild%/RPMS/noarch/vimclojure-*.rpm
 
 Now when you open a Clojure source file in Vim, you should see that the source is syntax highlighted.
 
@@ -36,11 +36,17 @@ Nailgun integration
 
 In order to use the REPL inside of Vim, you need to setup a nailgun server, then tell Vim you want to use it.
 
-Setting up the nailgun server using Leiningen is simple. First, add the following profile to the $HOME/.lein/profiles.clj:
+Setting up the nailgun server using Leiningen 2 is simple. First, add the following profile to the $HOME/.lein/profiles.clj:
 
     {:user {:plugins [[lein-tarsier "0.9.1"]]}}
 
-If this file did not previously exist, this will be the only line in the file.
+If profiles.clj did not previously exist, this will be the only line in the file.
+
+You can also start the server directly.
+
+    java -cp /usr/share/java/vimclojure/server.jar:/usr/share/java/clojure.jar vimclojure.nailgun.NGServer
+
+However, note that you will need to add any additional libraries or directories to the classpath that you intend to evaluate.
 
 In a new terminal, create a new project using lein.
 
